@@ -6,22 +6,36 @@
         <script src="https://unpkg.com/htmx.org@1.7.2/dist/htmx.min.js"></script>
         <script src="https://cdn.tailwindcss.com"></script>
         <title>Carlos Design</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     </head>
+    <style>
+:root {
+    --color-primary: #3490dc;
+    --color-accent: #38a169;
+    --color-background: #f8f9fa;
+    --color-card: #ffffff;
+    --color-card-foreground: #000000;
+    --color-muted-foreground: #6b7280;
+    --color-dark-background: #1a202c;
+    --color-dark-card: #2d3748;
+    --color-dark-card-foreground: #ffffff;
+}
+    </style>
     <body>
         <div class="flex flex-col min-h-screen">
             <header class="fixed top-0 w-full h-16 px-4 bg-white dark:bg-gray-900 flex items-center justify-between">
                 <div class="font-bold text-lg">Carlos Saenz</div>
                 <nav class="space-x-4">
-                    <a class="hover:underline" href="#">
+                    <a class="hover:underline" href="#home">
                         Home
                     </a>
-                    <a class="hover:underline" href="#">
+                    <a class="hover:underline" href="#about">
                         About
                     </a>
-                    <a class="hover:underline" href="#">
+                    <a class="hover:underline" href="#projects">
                         Projects
                     </a>
-                    <a class="hover:underline" href="#">
+                    <a class="hover:underline" href="#contact">
                         Contact
                     </a>
                 </nav>
@@ -34,9 +48,9 @@
                     <div>
                         <h1 class="text-4xl md:text-6xl font-bold mb-4">Hello, I'm Carlos Saenz</h1>
                         <p class="text-xl md:text-2xl mb-4">I'm a full-stack developer</p>
-                        <button class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-6 py-2 rounded bg-blue-500 text-white">
+                        <a role="button" href="#projects" class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-6 py-2 rounded bg-blue-500 text-white">
                             View My Work
-                        </button>
+                        </a>
                     </div>
                 </section>
                 <section id="about" class="py-16 px-4 bg-white dark:bg-gray-900">
@@ -64,7 +78,8 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
                             <div class="flex flex-col space-y-1.5 p-6">
-                                <h3 class="text-2xl font-semibold leading-none tracking-tight">Project 1</h3>
+                                <h3 class="text-2xl font-semibold leading-none tracking-tight">Reminder App<h3>
+                                        <h4 class="text-l font-semibold leading-none tracking-tight">WIP<h4>
                             </div>
                             <div class="p-6">
                                 <img
@@ -75,21 +90,17 @@
                                 height="200"
                                 style="aspect-ratio: 200 / 200; object-fit: cover;"
                                 />
-                                <p class="mt-4">A brief description of the project.</p>
+                                <p class="mt-4">Reminder App is a lightweight minimalist desktop/web app that allows you to create short-term reminders. Now you can leave for later tasks that come up during your day and not have to worry about remembering anything. Let the Reminder App worry for you while you get your task at hand done.</p>
                             </div>
                             <div class="flex items-center p-6">
-                                <button 
-                                    hx-get="/api/content"
-                                    hx-trigger="click"
-                                    hx-swap="innerHTML"
-                                    class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full">
+                                <a href="https://github.com/TangyOrigami/reminder-app" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full">
                                     View Details
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
                             <div class="flex flex-col space-y-1.5 p-6">
-                                <h3 class="text-2xl font-semibold leading-none tracking-tight">Project 2</h3>
+                                <h3 class="text-2xl font-semibold leading-none tracking-tight">City of Roma Website</h3>
                             </div>
                             <div class="p-6">
                                 <img
@@ -100,12 +111,12 @@
                                 height="200"
                                 style="aspect-ratio: 200 / 200; object-fit: cover;"
                                 />
-                                <p class="mt-4">A brief description of the project.</p>
+                                <p class="mt-4">My first full website with <a href="webflow.com">Webflow</a> was building the City of Roma's website. Although most of my knowledge with webdev has been building simple static sites with pure HTML nad GO, using <a href="webflow.com">Webflow</a> was a refreshing change of pace that has led me down the path of Web Development having UX Design and Accessibility at the fore front of development.</p>
                             </div>
                             <div class="flex items-center p-6">
-                                <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full">
+                                <a href="https://www.cityofroma.net/" class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full">
                                     View Details
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
