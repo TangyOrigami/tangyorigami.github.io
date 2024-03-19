@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Section Animation with Particles</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(45deg, #222, #444, #666, #888);
+            background-size: 400% 400%;
+            animation: gradient 20s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.7);
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            animation: particle-appear 6s ease infinite, particle-move 20s ease infinite;
+        }
+
+        @keyframes particle-appear {
+            0%, 100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes particle-move {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+
+            25% {
+                transform: translateY(-100px) translateX(100px);
+            }
+
+            50% {
+                transform: translateY(-200px) translateX(-200px);
+            }
+
+            75% {
+                transform: translateY(-300px) translateX(100px);
+            }
+
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero relative flex items-center justify-center text-white">
+        <div class="particle" style="top: 10%; left: 20%;"></div>
+        <div class="particle" style="top: 20%; left: 50%;"></div>
+        <div class="particle" style="top: 30%; left: 30%;"></div>
+        <div class="particle" style="top: 40%; left: 70%;"></div>
+        <div class="particle" style="top: 50%; left: 40%;"></div>
+        <div class="particle" style="top: 60%; left: 50%;"></div>
+        <div class="particle" style="top: 70%; left: 10%;"></div>
+        <div class="particle" style="top: 80%; left: 80%;"></div>
+        <div class="particle" style="top: 90%; left: 20%;"></div>
+    </div>
+</body>
+</html>
+
