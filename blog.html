@@ -1,80 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://unpkg.com/htmx.org@1.7.2/dist/htmx.min.js"></script>
         <script src="https://cdn.tailwindcss.com"></script>
-        <title>C.S. Blog</title>
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
-        <style>
-        .hero {
-        position: relative;
-        height: 100vh;
-        background: linear-gradient(45deg, #222, #444, #666, #888);
-        background-size: 400% 400%;
-        animation: gradient 20s ease infinite;
-        }
-
-        @keyframes gradient {
-        0% {
-        background-position: 0% 50%;
-        }
-
-        50% {
-        background-position: 100% 50%;
-        }
-
-        100% {
-        background-position: 0% 50%;
-        }
-        }
-
-        .particle {
-        position: absolute;
-        background-color: rgba(255, 255, 255, 0.7);
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        animation: particle-appear 6s ease infinite, particle-move 20s ease infinite;
-        }
-
-        @keyframes particle-appear {
-        0%, 100% {
-        opacity: 0;
-        }
-
-        50% {
-        opacity: 1;
-        }
-        }
-
-        @keyframes particle-move {
-        0% {
-        transform: translateY(0) translateX(0);
-        }
-
-        25% {
-        transform: translateY(-100px) translateX(100px);
-        }
-
-        50% {
-        transform: translateY(-200px) translateX(-200px);
-        }
-
-        75% {
-        transform: translateY(-300px) translateX(100px);
-        }
-
-        100% {
-        transform: translateY(0) translateX(0);
-        }
-        }
-        </style>
+        <title>Blog</title>
     </head>
+    <style>
+    .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(45deg, #222, #444, #666, #888);
+    background-size: 400% 400%;
+    animation: gradient 20s ease infinite;
+    }
+
+    @keyframes gradient {
+    0% {
+    background-position: 0% 50%;
+    }
+
+    50% {
+    background-position: 100% 50%;
+    }
+
+    100% {
+    background-position: 0% 50%;
+    }
+    }
+
+    .particle {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    animation: particle-appear 6s ease infinite, particle-move 20s ease infinite;
+    }
+
+    @keyframes particle-appear {
+    0%, 100% {
+    opacity: 0;
+    }
+
+    50% {
+    opacity: 1;
+    }
+    }
+
+    @keyframes particle-move {
+    0% {
+    transform: translateY(0) translateX(0);
+    }
+
+    25% {
+    transform: translateY(-100px) translateX(100px);
+    }
+
+    50% {
+    transform: translateY(-200px) translateX(-200px);
+    }
+
+    75% {
+    transform: translateY(-300px) translateX(100px);
+    }
+
+    100% {
+    transform: translateY(0) translateX(0);
+    }
+    }
+    </style>
     <body>
+
         <div class="flex flex-col min-h-screen">
 
             <header class="fixed top-0 w-full h-16 px-4 bg-white dark:bg-gray-900 flex items-center justify-between">
@@ -97,6 +96,7 @@
                     </a>
                 </nav>
             </header>
+
             <main class="flex-1 mt-16">
 
                 <section
@@ -115,13 +115,53 @@
                         <div class="particle" style="top: 90%; left: 20%;"></div>
                         <div class="h-screen flex flex-col items-center justify-center">
                             <h1 class="text-slate-100 text-4xl md:text-6xl font-bold mb-4">Blog</h1>
+                            <p class="text-slate-100 text-xl md:text-2xl mb-4">I'm a full-stack developer</p>
                         </div>
                     </div>
                 </section>
 
+                <section id="blog" class="py-16 px-4 bg-gray-100 dark:bg-gray-800">
+                    <h2 class="text-slate-100 text-3xl font-bold text-center mb-8">Projects</h2>
+                    <--! WIP -->
+                </section>
+
+                <section id="contact" class="py-16 px-4 bg-white dark:bg-gray-900">
+                    <div class="max-w-2xl mx-auto text-center">
+                        <h2 class="text-slate-100 text-3xl font-bold mb-8">Contact Me</h2>
+                        <form class="space-y-4">
+                            <input
+                            class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+                            placeholder="Name"
+                        />
+                            <input
+                            class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+                            placeholder="Email"
+                            type="email"
+                        />
+                            <input
+                            class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+                            placeholder="Subject"
+                        />
+                            <textarea
+                                class="flex min-h-[80px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full h-32"
+                                placeholder="Message"
+                            ></textarea>
+                            <button
+                                class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 w-full px-6 py-2 rounded bg-blue-500 text-white"
+                                type="submit"
+                            >
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </section>
+
             </main>
+
+            <footer class="h-16 px-4 bg-white dark:bg-gray-900 flex items-center justify-center">
+                <p class="text-sm text-gray-500 dark:text-gray-400">© Carlos Saenz</p>
+            </footer>
+
         </div>
     </body>
 </html>
-
-
