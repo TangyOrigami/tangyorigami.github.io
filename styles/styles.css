@@ -1,68 +1,69 @@
-.hero {
-	position: relative;
-	height: 100vh;
-	overflow: hidden;
-}
+    .hero {
+        position: relative;
+	width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
 
-.particle {
-	position: absolute;
-	background-color: rgba(255, 255, 255, 0.7);
-	border-radius: 50%;
-	width: 10px;
-	height: 10px;
-	animation: particleAppear 20s infinite, particleMove 30s infinite linear;
-}
+    .particle {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        animation: particleAppear 20s infinite, particleMove 30s infinite linear;
+    }
 
-@keyframes particleAppear {
-0% {
-	opacity: 0;
-}
-10% {
-	opacity: 1;
-}
-90% {
-	opacity: 1;
-}
-100% {
-	opacity: 0;
-}
-}
+    @keyframes particleAppear {
+        0% {
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
 
-@keyframes particleMove {
-0% {
-	transform: translateY(0) translateX(0);
-}
-25% {
-	transform: translateY(-100vh) translateX(100vw);
-}
-50% {
-	transform: translateY(-200vh) translateX(-100vw);
-}
-75% {
-	transform: translateY(100vh) translateX(-100vw);
-}
-100% {
-	transform: translateY(0) translateX(0);
-}
-}
+    @keyframes particleMove {
+        0% {
+            transform: translateY(0) translateX(0);
+        }
+        25% {
+            transform: translateY(-100vh) translateX(100vw);
+        }
+        50% {
+            transform: translateY(-200vh) translateX(-100vw);
+        }
+        75% {
+            transform: translateY(100vh) translateX(-100vw);
+        }
+        100% {
+            transform: translateY(0) translateX(0);
+        }
+    }
 
-.hero {
-	height: 100vh;
-	background: linear-gradient(45deg, #E5E7EB, #1F2937, #4B5563, #111827);
-	background-size: 400% 400%;
-	animation: gradient 20s ease infinite;
-}
+    .hero {
+        height: 100vh;
+        background: linear-gradient(45deg, #E5E7EB, #1F2937, #4B5563, #111827);
+        background-size: 400% 400%;
+        animation: gradient 20s ease infinite;
+    }
 
-@keyframes gradient {
-0% {
-	background-position: 0% 50%;
-}
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
 
-50% {
-	background-position: 100% 50%;
-}
+        50% {
+            background-position: 100% 50%;
+        }
 
-100% {
-	background-position: 0% 50%;
-}
-}
+        100% {
+            background-position: 0% 50%;
+        }
+    }
