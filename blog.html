@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/htmx.org@1.7.2/dist/htmx.min.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>C.S. Blog</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+        <style>
+        .hero {
+        position: relative;
+        height: 100vh;
+        background: linear-gradient(45deg, #222, #444, #666, #888);
+        background-size: 400% 400%;
+        animation: gradient 20s ease infinite;
+        }
+
+        @keyframes gradient {
+        0% {
+        background-position: 0% 50%;
+        }
+
+        50% {
+        background-position: 100% 50%;
+        }
+
+        100% {
+        background-position: 0% 50%;
+        }
+        }
+
+        .particle {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.7);
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        animation: particle-appear 6s ease infinite, particle-move 20s ease infinite;
+        }
+
+        @keyframes particle-appear {
+        0%, 100% {
+        opacity: 0;
+        }
+
+        50% {
+        opacity: 1;
+        }
+        }
+
+        @keyframes particle-move {
+        0% {
+        transform: translateY(0) translateX(0);
+        }
+
+        25% {
+        transform: translateY(-100px) translateX(100px);
+        }
+
+        50% {
+        transform: translateY(-200px) translateX(-200px);
+        }
+
+        75% {
+        transform: translateY(-300px) translateX(100px);
+        }
+
+        100% {
+        transform: translateY(0) translateX(0);
+        }
+        }
+        </style>
+    </head>
+    <body>
+        <div class="flex flex-col min-h-screen">
+
+            <header class="fixed top-0 w-full h-16 px-4 bg-white dark:bg-gray-900 flex items-center justify-between">
+                <div class="font-bold text-lg text-slate-100">Carlos Saenz</div>
+                <nav class="space-x-4">
+                    <a class="hover:underline text-slate-100" href="#home">
+                        Home
+                    </a>
+                    <a class="hover:underline text-slate-100" href="#about">
+                        About
+                    </a>
+                    <a class="hover:underline text-slate-100" href="#projects">
+                        Projects
+                    </a>
+                    <a class="hover:underline text-slate-100" href="#contact">
+                        Contact
+                    </a>
+                    <a class="hover:underline text-slate-100" href="#blog">
+                        Blog
+                    </a>
+                </nav>
+            </header>
+
+            <div class="hero relative flex items-center justify-center text-white">
+                <div class="particle" style="top: 10%; left: 20%;"></div>
+                <div class="particle" style="top: 20%; left: 50%;"></div>
+                <div class="particle" style="top: 30%; left: 30%;"></div>
+                <div class="particle" style="top: 40%; left: 70%;"></div>
+                <div class="particle" style="top: 50%; left: 40%;"></div>
+                <div class="particle" style="top: 60%; left: 50%;"></div>
+                <div class="particle" style="top: 70%; left: 10%;"></div>
+                <div class="particle" style="top: 80%; left: 80%;"></div>
+                <div class="particle" style="top: 90%; left: 20%;"></div>
+                <div class="h-screen flex flex-col items-center justify-center">
+                    <h1 class="text-slate-100 text-4xl md:text-6xl font-bold mb-4">Blog</h1>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
+
+
