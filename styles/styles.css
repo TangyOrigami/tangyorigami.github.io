@@ -1,9 +1,54 @@
-
 .hero {
 	position: relative;
-	width: 100%;
 	height: 100vh;
-	background: linear-gradient(45deg, #222, #444, #666, #888);
+	overflow: hidden;
+}
+
+.particle {
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0.7);
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	animation: particleAppear 20s infinite, particleMove 30s infinite linear;
+}
+
+@keyframes particleAppear {
+0% {
+	opacity: 0;
+}
+10% {
+	opacity: 1;
+}
+90% {
+	opacity: 1;
+}
+100% {
+	opacity: 0;
+}
+}
+
+@keyframes particleMove {
+0% {
+	transform: translateY(0) translateX(0);
+}
+25% {
+	transform: translateY(-100vh) translateX(100vw);
+}
+50% {
+	transform: translateY(-200vh) translateX(-100vw);
+}
+75% {
+	transform: translateY(100vh) translateX(-100vw);
+}
+100% {
+	transform: translateY(0) translateX(0);
+}
+}
+
+.hero {
+	height: 100vh;
+	background: linear-gradient(45deg, #E5E7EB, #1F2937, #4B5563, #111827);
 	background-size: 400% 400%;
 	animation: gradient 20s ease infinite;
 }
@@ -19,46 +64,5 @@
 
 100% {
 	background-position: 0% 50%;
-}
-}
-
-.particle {
-	position: absolute;
-	background-color: rgba(255, 255, 255, 0.7);
-	width: 5px;
-	height: 5px;
-	border-radius: 50%;
-	animation: particle-appear 6s ease infinite, particle-move 20s ease infinite;
-}
-
-@keyframes particle-appear {
-0%, 100% {
-	opacity: 0;
-}
-
-50% {
-	opacity: 1;
-}
-}
-
-@keyframes particle-move {
-0% {
-	transform: translateY(0) translateX(0);
-}
-
-25% {
-	transform: translateY(-100px) translateX(100px);
-}
-
-50% {
-	transform: translateY(-200px) translateX(-200px);
-}
-
-75% {
-	transform: translateY(-300px) translateX(100px);
-}
-
-100% {
-	transform: translateY(0) translateX(0);
 }
 }
