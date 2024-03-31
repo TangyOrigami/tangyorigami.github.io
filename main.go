@@ -18,9 +18,11 @@ type Page struct {
 	Body []byte
 }
 
+// This needs to save to the ./templ/ folder
+
 func (p *Page) save() error {
 
-	filename := p.Title + ".txt"
+	filename := "templ/" + p.Title + ".html"
 
 	return os.WriteFile(filename, p.Body, 0600)
 
@@ -28,7 +30,7 @@ func (p *Page) save() error {
 
 func loadPage(title string) (*Page, error) {
 
-	filename := title + ".txt"
+	filename := "templ/" + title + ".html"
 
 	body, err := os.ReadFile(filename)
 
@@ -39,6 +41,10 @@ func loadPage(title string) (*Page, error) {
 	}
 
 	return &Page{Title: title, Body: body}, nil
+
+}
+
+func defaultHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
@@ -128,7 +134,12 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 
 }
 
+// TODO:
+// Handle default view
+
 func main() {
+
+	//http.Handle("/", "./templ/test3.html")
 
 	http.HandleFunc("/view/", makeHandler(viewHandler))
 
@@ -139,4 +150,3 @@ func main() {
 	log.Fatal(http.ListenAndServe(":8080", nil))
 
 }
-
