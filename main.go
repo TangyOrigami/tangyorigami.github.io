@@ -36,12 +36,12 @@ func loadPage(title string) (*Page, error) {
 	return &Page{Title: title, Body: body}, nil
 }
 
-func root(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, r.URL.Path[1:])
+func rootHandler(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "./index.html")
 }
 
-func staticHandler(w http.ResponseWriter, r *http.Request, title string) {
-	http.ServeFile(w, r, "/static/"+title)
+func staticHandler(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "./static/")
 }
 
 func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
@@ -113,9 +113,10 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 // TODO:
 // Handle default view [x]
 // URL cannot handle 'this-syntax-here' [ ]
+// Incorporate styles of homepage and blog to the dynamic wiki rendering
 
 func main() {
-	http.HandleFunc("/", root)
+	http.HandleFunc("/", rootHandler)
 
 	http.HandleFunc("/static/", staticHandler)
 
