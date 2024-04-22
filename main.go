@@ -113,8 +113,6 @@ func main() {
 
 	http.HandleFunc("/save", makeHandler(saveHandler))
 
-	// TODO:
-	// Make this FileServer
 	fserver := http.FileServer(http.Dir("."))
 
 	log.Fatal(http.ListenAndServe(":8080", fserver))
