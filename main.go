@@ -105,13 +105,14 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 
 // TODO:
 // Can't handle this-syntax-here
+// Can't handle in page wiki editing anymore
 
 func main() {
-	http.HandleFunc("/view", makeHandler(viewHandler))
+	http.HandleFunc("/view/", makeHandler(viewHandler))
 
-	http.HandleFunc("/edit", makeHandler(editHandler))
+	http.HandleFunc("/edit/", makeHandler(editHandler))
 
-	http.HandleFunc("/save", makeHandler(saveHandler))
+	http.HandleFunc("/save/", makeHandler(saveHandler))
 
 	fserver := http.FileServer(http.Dir("."))
 
