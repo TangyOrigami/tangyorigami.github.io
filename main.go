@@ -105,7 +105,7 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 
 // TODO:
 // Can't handle this-syntax-here
-// Can't handle in page wiki editing anymore
+// Can't handle in page wiki editing
 
 func main() {
 	http.HandleFunc("/view/", makeHandler(viewHandler))
@@ -114,8 +114,8 @@ func main() {
 
 	http.HandleFunc("/save/", makeHandler(saveHandler))
 
-	fserver := http.FileServer(http.Dir("."))
+	http.Handle("/", http.FileServer(http.Dir(".")))
 
-	log.Fatal(http.ListenAndServe(":8080", fserver))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 	fmt.Printf("Listening on: https://localhost:8080")
 }
