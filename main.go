@@ -22,28 +22,18 @@ type Page struct {
 // This needs to save to the ./templ/ folder
 
 func (p *Page) save() error {
-	filename := "templ/" + p.Title + ".html"
+	filename := "./templ" + p.Title + ".html"
 
 	return os.WriteFile(filename, p.Body, 0600)
 }
 
 func loadPage(title string) (*Page, error) {
-	filename := "templ/" + title + ".html"
+	filename := "./templ" + title + ".html"
 	body, err := os.ReadFile(filename)
 	if err != nil {
 		return nil, err
 	}
 	return &Page{Title: title, Body: body}, nil
-
-}
-
-func rootHandler(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "./index.html")
-
-}
-
-func staticHandler(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "./static/")
 
 }
 
@@ -105,7 +95,6 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 
 // TODO:
 // Can't handle this-syntax-here
-// Can't handle in page wiki editing
 
 func main() {
 	http.HandleFunc("/view/", makeHandler(viewHandler))
