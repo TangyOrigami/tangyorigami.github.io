@@ -22,13 +22,13 @@ type Page struct {
 // This needs to save to the ./templ/ folder
 
 func (p *Page) save() error {
-	filename := "./templ" + p.Title + ".html"
+	filename := "./templ/" + p.Title + ".html"
 
 	return os.WriteFile(filename, p.Body, 0600)
 }
 
 func loadPage(title string) (*Page, error) {
-	filename := "./templ" + title + ".html"
+	filename := "./templ/" + title + ".html"
 	body, err := os.ReadFile(filename)
 	if err != nil {
 		return nil, err
