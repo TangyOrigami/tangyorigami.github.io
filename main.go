@@ -18,9 +18,6 @@ type Page struct {
 	Body  []byte
 }
 
-// TODO:
-// This needs to save to the ./templ/ folder
-
 func (p *Page) save() error {
 	filename := "./templ/" + p.Title + ".html"
 
@@ -30,6 +27,7 @@ func (p *Page) save() error {
 func loadPage(title string) (*Page, error) {
 	filename := "./templ/" + title + ".html"
 	body, err := os.ReadFile(filename)
+	fmt.Printf("%s\n", body)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +63,6 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 		return
 	}
 	http.Redirect(w, r, "/view/"+title, http.StatusFound)
-
 }
 
 var templates = template.Must(template.ParseFiles("./static/edit.html", "./static/view.html"))
@@ -78,7 +75,7 @@ func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
 
 }
 
-var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9]+)$")
+var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9\055]+)$")
 
 func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
 
@@ -86,17 +83,18 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 		m := validPath.FindStringSubmatch(r.URL.Path)
 		if m == nil {
 			http.NotFound(w, r)
-
 			return
 		}
+
 		fn(w, r, m[2])
 	}
 }
 
 // TODO:
-// Can't handle this-syntax-here
+// Add the templates into blog.html
 
 func main() {
+	// This needs to write and save to
 	http.HandleFunc("/view/", makeHandler(viewHandler))
 
 	http.HandleFunc("/edit/", makeHandler(editHandler))
