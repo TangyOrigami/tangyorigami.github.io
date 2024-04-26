@@ -91,7 +91,8 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 }
 
 // TODO:
-// Add the templates into blog.html
+// Learn how to use templates
+// Serve files from templ into blog.html
 
 func main() {
 	// This needs to write and save to
