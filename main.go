@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"html/template"
 
 	"log"
@@ -25,6 +26,7 @@ func (p *Page) save() error {
 }
 
 func loadPage(title string) (*Page, error) {
+	// This has to use templates
 	filename := "./templ/" + title + ".html"
 	body, err := os.ReadFile(filename)
 	fmt.Printf("%s\n", body)
@@ -93,6 +95,7 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 // TODO:
 // Learn how to use templates
 // Serve files from templ into blog.html
+// Refactor blog.html
 
 func main() {
 	// This needs to write and save to
