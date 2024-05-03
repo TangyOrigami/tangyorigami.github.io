@@ -94,11 +94,11 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 // Refactor blog.html
 
 func main() {
-	http.HandleFunc("/view/", makeHandler(viewHandler))
+	//http.HandleFunc("/view/", makeHandler(viewHandler))
 
-	http.HandleFunc("/edit/", makeHandler(editHandler))
+	//http.HandleFunc("/edit/", makeHandler(editHandler))
 
-	http.HandleFunc("/save/", makeHandler(saveHandler))
+	//http.HandleFunc("/save/", makeHandler(saveHandler))
 
 	http.Handle("/", http.FileServer(http.Dir(".")))
 
