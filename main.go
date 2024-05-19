@@ -35,7 +35,7 @@ func loadPage(title string) (*Page, error) {
 
 }
 
-var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9\055]+)$")
+var validPath = regexp.MustCompile("^/(edit|save|blog)/([a-zA-Z0-9\055]+)$")
 
 func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
 
@@ -50,23 +50,22 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 	}
 }
 
-var templates = template.Must(template.ParseFiles("./static/edit.html", "./static/view.html"))
+var templates = template.Must(template.ParseFiles("./static/edit.html", "./static/blog.html"))
 
 func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
-	fmt.Printf("Rendering: %s \n", tmpl)
 	err := templates.ExecuteTemplate(w, tmpl+".html", p)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
 
-func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
+func blogHandler(w http.ResponseWriter, r *http.Request, title string) {
 	p, err := loadPage(title)
 	if err != nil {
 		http.Redirect(w, r, "/edit/"+title, http.StatusFound)
 		return
 	}
-	renderTemplate(w, "view", p)
+	renderTemplate(w, "blog", p)
 }
 
 func editHandler(w http.ResponseWriter, r *http.Request, title string) {
@@ -85,20 +84,18 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	http.Redirect(w, r, "/view/"+title, http.StatusFound)
+	http.Redirect(w, r, "/blog/"+title, http.StatusFound)
 }
 
 // TODO:
-// Learn how to use templates
-// Serve files from templ into blog.html
-// Refactor blog.html
+// Render markdown
 
 func main() {
-	//http.HandleFunc("/view/", makeHandler(viewHandler))
+	http.HandleFunc("/blog/", makeHandler(blogHandler))
 
-	//http.HandleFunc("/edit/", makeHandler(editHandler))
+	http.HandleFunc("/edit/", makeHandler(editHandler))
 
-	//http.HandleFunc("/save/", makeHandler(saveHandler))
+	http.HandleFunc("/save/", makeHandler(saveHandler))
 
 	http.Handle("/", http.FileServer(http.Dir(".")))
 

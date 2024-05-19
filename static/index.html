@@ -51,7 +51,7 @@
                         <div class="particle z-51" style="top: 80%; left: 80%;"></div>
                         <div class="particle z-51" style="top: 90%; left: 20%;"></div>
                         <div class="h-screen flex flex-col items-center justify-center">
-                            <h1 class="text-slate-100 text-4xl md:text-6xl font-bold mb-4">{{.Title}}</h1>
+                            <h1 class="text-slate-100 text-4xl md:text-6xl font-bold mb-4">Blog</h1>
                             <a role="button" href="#posts" class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-6 py-2 rounded bg-blue-500 text-white">
                                 Posts
                             </a>
@@ -60,14 +60,31 @@
                 </section>
 
                 <section id="posts" class="py-16 px-4 bg-gray-100 dark:bg-gray-800">
+                    <h2 class="text-slate-100 text-3xl font-bold text-center mb-8">Posts</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                        <p>[<a href="/edit/{{.Title}}">edit</a>]</p>
-                        <md-block>
-
-                            <div>{{printf "%s" .Body}}</div>
-
-                        </md-block>
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+                            <div class="flex flex-col space-y-1.5 p-6">
+                                <h3 class="text-slate-100 text-2xl font-semibold leading-none tracking-tight">{{ header }}</h3>
+                            </div>
+                            <div class="p-6">
+                                <div class="p-6">
+                                    <img
+                                    src=""
+                                    alt="{{ image }}"
+                                    class="w-full h-48 object-cover"
+                                    width="200"
+                                    height="200"
+                                    style="aspect-ratio: 200 / 200; object-fit: cover;"
+                                />
+                                    <p class="text-slate-100  mt-4">{{ content }}</p>
+                                </div>
+                                <div class="flex items-center p-6">
+                                    <a href="" class="text-slate-100 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full">
+                                        {{ link to blog }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
