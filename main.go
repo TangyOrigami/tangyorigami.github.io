@@ -88,7 +88,10 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 }
 
 // TODO:
+// Add default /blog/ view
 // Render markdown
+// Add a feed/log for blog posts
+// Start thinking about things to write about
 
 func main() {
 	http.HandleFunc("/blog/", makeHandler(blogHandler))
