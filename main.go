@@ -102,6 +102,6 @@ func main() {
 
 	http.Handle("/", http.FileServer(http.Dir(".")))
 
-	fmt.Printf("Listening on: https://localhost:8080\n")
+	fmt.Printf("Listening on: http://localhost:8080\n")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
