@@ -93,16 +93,14 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 func main() {
 	godotenv.Load()
 	mux := pat.New()
-	http.FileServer(http.Dir("."))
 
+	mux.Get("/assets", http.FileServer(http.Dir("./assets/")))
 	mux.Get("/", http.HandlerFunc(home))
 	mux.Post("/", http.HandlerFunc(send))
 	mux.Get("/confirmation", http.HandlerFunc(confirmation))
 
 	//http.HandleFunc("/blog/", makeHandler(blogHandler))
-
 	//http.HandleFunc("/edit/", makeHandler(editHandler))
-
 	//http.HandleFunc("/save/", makeHandler(saveHandler))
 
 	log.Print("Listening...")
@@ -123,19 +121,22 @@ func send(w http.ResponseWriter, r *http.Request) {
 		Content: r.PostFormValue("content"),
 	}
 
+	if msg.Validate() == true {
+		// Send contact form message in email
+		if err := msg.DeliverAsync(); err != nil {
+			log.Print(err)
+			http.Error(w, "Sorry, something went wrong", http.StatusInternalServerError)
+			return
+		}
+
+		// Redirect to confirmation
+		http.Redirect(w, r, "confirmation", http.StatusSeeOther)
+	}
 	if msg.Validate() == false {
 		render(w, "static/home.html", msg)
+		http.Redirect(w, r, "confirmation", http.StatusSeeOther)
 	}
 
-	// Send contact form message in email
-	if err := msg.Deliver(); err != nil {
-		log.Print(err)
-		http.Error(w, "Sorry, something went wrong", http.StatusInternalServerError)
-		return
-	}
-
-	// Redirect to confirmation
-	http.Redirect(w, r, "static/confirmation.html", http.StatusSeeOther)
 }
 
 func confirmation(w http.ResponseWriter, r *http.Request) {

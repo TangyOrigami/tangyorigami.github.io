@@ -30,16 +30,28 @@ func (msg *Message) Validate() bool {
 	return len(msg.Errors) == 0
 }
 
-func (msg *Message) Deliver() error {
+func (msg *Message) DeliverAsync() error {
+	username := goDotEnvVariable("MAILTRAP_UN")
+	password := goDotEnvVariable("MAILTRAP_PW")
+
 	email := mail.NewMessage()
 	email.SetHeader("To", "carlos@csaenz.dev")
 	email.SetHeader("From", "server@csaenz.dev")
 	email.SetHeader("Reply-To", msg.Email)
 	email.SetHeader("Subject", "New message via Contact Form")
 	email.SetBody("text/plain", msg.Content)
+	email.AddAlternative("text/html",
+		`
+        <html>
+            <body>
+                <h1>New Message via Contact Form</h1>
+                <p>"
+		`+msg.Content+`
+		"</p>
+                <p>Made with &#128140;<br>Mailtrap</p>
+            </body>
+        </html>
+		`)
 
-	username := goDotEnvVariable("MAILTRAP_UN")
-	password := goDotEnvVariable("MAILTRAP_PW")
-
-	return mail.NewDialer("smtp.mailtrap.io", 25, username, password).DialAndSend(email)
+	return mail.NewDialer("live.smtp.mailtrap.io", 587, username, password).DialAndSend(email)
 }

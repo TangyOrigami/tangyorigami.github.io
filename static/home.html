@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="./styles/styles.css" >
+        <link rel="stylesheet" type="text/css" href="/assets/styles.css">
         <script src="https://cdn.tailwindcss.com"></script>
         <title>Carlos Design</title>
     </head>
@@ -15,16 +15,16 @@
             <header class="fixed z-50 top-0 w-full h-16 px-4 bg-white dark:bg-gray-900 flex items-center justify-between">
                 <div class="font-bold text-lg text-slate-100">Carlos Saenz</div>
                 <nav class="space-x-4">
-                    <a class="hover:underline text-slate-100" href="">
+                    <a class="hover:underline text-slate-100" href=".">
                         Home
                     </a>
-                    <a class="hover:underline text-slate-100" href="#about">
+                    <a class="hover:underline text-slate-100" href=".#about">
                         About
                     </a>
-                    <a class="hover:underline text-slate-100" href="#projects">
+                    <a class="hover:underline text-slate-100" href=".#projects">
                         Projects
                     </a>
-                    <a class="hover:underline text-slate-100" href="#contact">
+                    <a class="hover:underline text-slate-100" href=".#contact">
                         Contact
                     </a>
                 </nav>
@@ -61,7 +61,7 @@
                         <h2 class="text-slate-100 text-3xl font-bold mb-4">About Me</h2>
                         <div class="flex items-center justify-center space-x-4">
                             <img
-                                src="./assets/profile-pic.png"
+                                src="../assets/profile-pic.png"
                                 alt="Profile Picture"
                                 class="w-48 h-48 rounded-full"
                                 width="200"
@@ -88,7 +88,7 @@
                             </div>
                             <div class="p-6">
                                 <img
-                                    src="./assets/corsite.png"
+                                    src="../assets/corsite.png"
                                     alt="Website Screenshot"
                                     class="w-full h-48 object-cover"
                                     width="200"
@@ -110,7 +110,7 @@
                             </div>
                             <div class="p-6">
                                 <img
-                                    src="./assets/blog.png"
+                                    src="../assets/blog.png"
                                     alt="Website Screenshot"
                                     class="w-full h-48 object-cover"
                                     width="200"
@@ -128,32 +128,28 @@
                     </div>
                 </section>
 
-                <style type="text/css">.error {color: red;}</style>
-                <h1 id="contact">Contact</h1>
-                <form action="/" method="POST" novalidate>
-                    <div>
-                        {{ with .Errors.Email }}
-                        <p class="error">{{ . }}</p>
-                        {{ end }}
-                        <p><label>Your email:</label></p>
-                        <p><input type="email" name="email" value="{{ .Email }}"></p>
+                <section id="contact" class="py-16 px-4 bg-white dark:bg-gray-900">
+                    <div class="max-w-2xl mx-auto text-center">
+                        <style type="text/css">.error {color: red;}</style>
+                        <h2 id="contact" class="text-slate-100 text-3xl font-bold mb-8">Contact Me</h2>
+                        <form class="space-y-4" action="/" method="POST" novalidate>
+                                {{ with .Errors.Email }}
+                                <p class="error">{{ . }}</p>
+                                {{ end }}
+                                <input class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full" type="email" name="email" value="{{ .Email }}" placeholder="Email">
+                                {{ with .Errors.Content }}
+                                <p class="error" >{{ . }}</p>
+                                {{ end }}
+                                <textarea class="flex min-h-[80px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full h-32" name="content"placeholder="Message">{{ .Content }}</textarea>
+                                <input class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 w-full px-6 py-2 rounded bg-blue-500 text-white" type="submit" value="Send message">
+                        </form>
                     </div>
-                    <div>
-                        {{ with .Errors.Content }}
-                        <p class="error" >{{ . }}</p>
-                        {{ end }}
-                        <p><label>Your message:</label></p>
-                        <p><textarea name="content">{{ .Content }}</textarea></p>
-                    </div>
-                    <div>
-                        <input type="submit" value="Send message">
-                    </div>
-                </form>
+                </section>
 
             </main>
 
             <footer class="h-16 px-4 bg-white dark:bg-gray-900 flex items-center justify-center">
-                <p class="text-sm text-gray-500 dark:text-gray-400">© Carlos Saenz</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Made with &#128150; using go</p>
             </footer>
 
         </div>
