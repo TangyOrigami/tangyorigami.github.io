@@ -1,19 +1,15 @@
 package main
 
 import (
-	"fmt"
-
 	"html/template"
-
 	"log"
-
 	"net/http"
 
-	"os"
-
-	"regexp"
+	"github.com/bmizerany/pat"
+	"github.com/joho/godotenv"
 )
 
+/*
 type Page struct {
 	Title string
 	Body  []byte
@@ -87,6 +83,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 	http.Redirect(w, r, "/blog/"+title, http.StatusFound)
 }
 
+*/
 // TODO:
 // Add default /blog/ view
 // Render markdown
@@ -94,14 +91,67 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 // Start thinking about things to write about
 
 func main() {
-	http.HandleFunc("/blog/", makeHandler(blogHandler))
+	godotenv.Load()
+	mux := pat.New()
+	http.FileServer(http.Dir("."))
 
-	http.HandleFunc("/edit/", makeHandler(editHandler))
+	mux.Get("/", http.HandlerFunc(home))
+	mux.Post("/", http.HandlerFunc(send))
+	mux.Get("/confirmation", http.HandlerFunc(confirmation))
 
-	http.HandleFunc("/save/", makeHandler(saveHandler))
+	//http.HandleFunc("/blog/", makeHandler(blogHandler))
 
-	http.Handle("/", http.FileServer(http.Dir(".")))
+	//http.HandleFunc("/edit/", makeHandler(editHandler))
 
-	fmt.Printf("Listening on: http://localhost:8080\n")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	//http.HandleFunc("/save/", makeHandler(saveHandler))
+
+	log.Print("Listening...")
+	err := http.ListenAndServe(":8080", mux)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func home(w http.ResponseWriter, r *http.Request) {
+	render(w, "static/home.html", nil)
+}
+
+func send(w http.ResponseWriter, r *http.Request) {
+	// Validate form
+	msg := &Message{
+		Email:   r.PostFormValue("email"),
+		Content: r.PostFormValue("content"),
+	}
+
+	if msg.Validate() == false {
+		render(w, "static/home.html", msg)
+	}
+
+	// Send contact form message in email
+	if err := msg.Deliver(); err != nil {
+		log.Print(err)
+		http.Error(w, "Sorry, something went wrong", http.StatusInternalServerError)
+		return
+	}
+
+	// Redirect to confirmation
+	http.Redirect(w, r, "static/confirmation.html", http.StatusSeeOther)
+}
+
+func confirmation(w http.ResponseWriter, r *http.Request) {
+	render(w, "static/confirmation.html", nil)
+}
+
+func render(w http.ResponseWriter, filename string, data interface{}) {
+	tmpl, err := template.ParseFiles(filename)
+	if err != nil {
+		log.Print(err)
+		http.Error(w, "Sorry, something went wrong", http.StatusInternalServerError)
+		return
+	}
+
+	if err := tmpl.Execute(w, data); err != nil {
+		log.Print(err)
+		http.Error(w, "Sorry, something went wrong", http.StatusInternalServerError)
+	}
 }
