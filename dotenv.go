@@ -1,17 +1,20 @@
 package main
 
 import (
-	"log"
+	//"log"
 	"os"
-
-	"github.com/joho/godotenv"
+	//"github.com/joho/godotenv"
 )
 
 func goDotEnvVariable(key string) string {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalf("Error loading .env file")
-	}
+	// This is only for development
+	/*
+		err := godotenv.Load()
+		if err != nil {
+			log.Print("Error loading .env file")
+			return os.Getenv(key)
+		}
+	*/
 
 	return os.Getenv(key)
 }

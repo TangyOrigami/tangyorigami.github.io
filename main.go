@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/bmizerany/pat"
 	"github.com/joho/godotenv"
@@ -109,9 +111,11 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
+	fmt.Print(os.Getenv("THIS"))
 	render(w, "static/home.html", nil)
 }
 
