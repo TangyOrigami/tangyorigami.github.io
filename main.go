@@ -94,7 +94,8 @@ func main() {
 	godotenv.Load()
 	mux := pat.New()
 
-	mux.Get("/assets", http.FileServer(http.Dir("./assets/")))
+	fs := http.FileServer(http.Dir("assets"))
+	mux.Get("/assets/", http.StripPrefix("/assets/", fs))
 	mux.Get("/", http.HandlerFunc(home))
 	mux.Post("/", http.HandlerFunc(send))
 	mux.Get("/confirmation", http.HandlerFunc(confirmation))
@@ -140,6 +141,8 @@ func send(w http.ResponseWriter, r *http.Request) {
 }
 
 func confirmation(w http.ResponseWriter, r *http.Request) {
+	// Add GIPHY integration, eventually
+
 	render(w, "static/confirmation.html", nil)
 }
 
