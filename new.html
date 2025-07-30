@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Glitch Effects Showcase</title>
+    <link rel="stylesheet" type="text/css" href="./glitch.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="crt-screen" style="text-align: center; margin-bottom: 40px;">
+            <h1 class="glitch retro-text" data-text="RETRO GLITCH SHOWCASE" style="font-size: 2.5em; margin: 0;">
+                RETRO GLITCH SHOWCASE
+            </h1>
+            <p class="retro-cyan scanlines" style="margin: 10px 0;">
+                {'>>> MONOCHROME TERMINAL DEMO <<<'} </p>
+        </header>
+
+        <!-- Basic Retro Text Styles -->
+        <section class="section">
+            <h2>Basic Retro Text Styles</h2>
+
+            <div class="demo-item">
+                <h3>.retro-text</h3>
+                <p>Classic green terminal text with glow effect</p>
+                <div class="retro-text" style="font-size: 1.5em;">
+                    SYSTEM ONLINE - MINIMAL INTERFACE
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>.retro-neon</h3>
+                <p>White phosphor glow effect for classic terminals</p>
+                <div class="retro-neon" style="font-size: 1.5em;">
+                    WHITE PHOSPHOR - CLASSIC DISPLAY
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>.retro-cyan</h3>
+                <p>Muted gray for secondary text elements</p>
+                <div class="retro-cyan" style="font-size: 1.5em;">
+                    GRAY SCALE - TERMINAL MODE
+                </div>
+            </div>
+        </section>
+
+        <!-- Glitch Effects -->
+        <section class="section">
+            <h2>Glitch Effects</h2>
+
+            <div class="demo-item">
+                <h3>.glitch</h3>
+                <p>RGB split glitch effect (requires data-text attribute)</p>
+                <div class="glitch" data-text="ERROR 404 - SIGNAL LOST" style="font-size: 1.8em;">
+                    ERROR 404 - SIGNAL LOST
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>.glitch + .retro-neon</h3>
+                <p>Combining glitch with neon colors</p>
+                <div class="glitch retro-neon" data-text="SYSTEM FAULT" style="font-size: 1.5em;">
+                    SYSTEM FAULT
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen Effects -->
+        <section class="section">
+            <h2>Screen Effects</h2>
+
+            <div class="demo-item">
+                <h3>.scanlines</h3>
+                <p>Moving scanline overlay effect</p>
+                <div class="scanlines retro-text"
+                    style="font-size: 1.3em; padding: 20px; background: rgba(0, 0, 0, 0.5);">
+                    SCANNING... PLEASE WAIT
+                    <br>
+                    {'[████████████████████] 100%'}
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>.crt-screen</h3>
+                <p>CRT monitor container with curved edges and glow</p>
+                <div class="crt-screen grain">
+                    <div class="retro-text">
+                        {'> WELCOME TO THE MAINFRAME'}
+                        <br>
+                        {'> ENTER PASSWORD: ********'}
+                        <br>
+                        {'> ACCESS GRANTED'}
+                        <br>
+                        <span class="retro-cyan">{'> LOADING NEURAL INTERFACE...'}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>.flicker</h3>
+                <p>Random flickering effect</p>
+                <div class="flicker retro-neon" style="font-size: 1.4em;">
+                    UNSTABLE CONNECTION - SIGNAL WEAK
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>.static</h3>
+                <p>Static noise overlay</p>
+                <div class="static retro-cyan" style="font-size: 1.3em; padding: 20px; background: rgba(0, 0, 0, 0.7);">
+                    TRANSMISSION INTERRUPTED
+                    <br>
+                    ATTEMPTING TO RECONNECT...
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>.grain</h3>
+                <p>Subtle film grain texture overlay</p>
+                <div class="grain retro-text" style="font-size: 1.3em; padding: 20px; background: rgba(0, 0, 0, 0.7);">
+                    VINTAGE DISPLAY MODE
+                    <br>
+                    FILM GRAIN ACTIVE
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>.grain-heavy</h3>
+                <p>Heavy grain for that old monitor feel</p>
+                <div class="grain-heavy retro-cyan"
+                    style="font-size: 1.3em; padding: 20px; background: rgba(0, 0, 0, 0.7);">
+                    HEAVY GRAIN TEXTURE
+                    <br>
+                    AUTHENTIC CRT FEEL
+                </div>
+            </div>
+        </section>
+
+        <!-- Combined Effects -->
+        <section class="section">
+            <h2>Combined Effects</h2>
+
+            <div class="grid">
+                <div class="card crt-screen grain">
+                    <h3 class="glitch retro-neon" data-text="TERMINAL 01">TERMINAL 01</h3>
+                    <div class="scanlines retro-text">
+                        {'> STATUS: ONLINE'}
+                        <br>
+                        {'> CPU: 98.7%'}
+                        <br>
+                        {'> MEMORY: 2.1GB'}
+                    </div>
+                </div>
+
+                <div class="card crt-screen grain-heavy">
+                    <h3 class="flicker retro-cyan">NEURAL LINK</h3>
+                    <div class="static retro-text">
+                        {'> SYNCING...'}
+                        <br>
+                        {'> BANDWIDTH: 1.21 GW'}
+                        <br>
+                        {'> LATENCY: 0.003ms'}
+                    </div>
+                </div>
+
+                <div class="card crt-screen grain">
+                    <h3 class="glitch retro-text" data-text="FIREWALL">FIREWALL</h3>
+                    <div class="scanlines">
+                        <span class="retro-neon">{'> THREATS DETECTED: 0'}</span>
+                        <br>
+                        <span class="retro-cyan">{'> LAST SCAN: 00:00:01'}</span>
+                        <br>
+                        <span class="retro-text">{'> STATUS: PROTECTED'}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo -->
+        <section class="section">
+            <h2>Interactive Demo</h2>
+            <div class="demo-item">
+                <h3>Hover Effects</h3>
+                <p>Hover over the buttons to see different combinations</p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+                    <button class="retro-text"
+                        style="background: transparent; border: 2px solid #808080; padding: 10px 20px; cursor: pointer;"
+                        onmouseover="this.className='retro-text glitch'; this.setAttribute('data-text', 'MONO')"
+                        onmouseout="this.className='retro-text'; this.removeAttribute('data-text')">
+                        MONO
+                    </button>
+                    <button class="retro-neon"
+                        style="background: transparent; border: 2px solid #ffffff; padding: 10px 20px; cursor: pointer;"
+                        onmouseover="this.className='retro-neon flicker'" onmouseout="this.className='retro-neon'">
+                        WHITE
+                    </button>
+                    <button class="retro-cyan"
+                        style="background: transparent; border: 2px solid #a0a0a0; padding: 10px 20px; cursor: pointer;"
+                        onmouseover="this.className='retro-cyan static'" onmouseout="this.className='retro-cyan'">
+                        GRAY
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="crt-screen" style="text-align: center; margin-top: 40px;">
+            <div class="scanlines retro-text">
+                {'>>> END OF TRANSMISSION <<<'} </div>
+        </footer>
+    </div>
+</body>
+
+</html>
