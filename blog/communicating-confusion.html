@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Glitch Effects Showcase</title>
+    <link rel="stylesheet" type="text/css" href="../static/glitch.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <header class="crt-screen" style="text-align: center; margin-bottom: 40px;">
+            <h1 class="glitch retro-text" data-text="chrlie.dev" style="font-size: 2.5em; margin: 0;">
+                chrlie.dev
+            </h1>
+            <p class="retro-cyan scanlines" style="margin: 10px 0;">
+                {'>>> dazed and confused <<<'} </p>
+
+                    <nav style="margin-top: 20px;">
+                        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                            <a href=".." class="retro-cyan" style="text-decoration: none; padding: 5px 10px;"
+                                onmouseover="this.className='retro-cyan scanlines'"
+                                onmouseout="this.className='retro-cyan'">
+                                cd ~
+                            </a>
+                            <a href="../#about" class="retro-cyan" style="text-decoration: none; padding: 5px 10px;"
+                                onmouseover="this.className='retro-cyan scanlines'"
+                                onmouseout="this.className='retro-cyan'">
+                                cat about.txt
+                            </a>
+                            <a href="../#projects" class="retro-cyan" style="text-decoration: none; padding: 5px 10px;"
+                                onmouseover="this.className='retro-cyan scanlines'"
+                                onmouseout="this.className='retro-cyan'">
+                                cat projects.txt
+                            </a>
+                            <a href="./index.html" class="retro-cyan" style="text-decoration: none; padding: 5px 10px;"
+                                onmouseover="this.className='retro-cyan scanlines'"
+                                onmouseout="this.className='retro-cyan'">
+                                cd blog
+                            </a>
+                        </div>
+                    </nav>
+        </header>
+
+        <section class="section">
+            <h2 class="retro-neon"
+                style="font-size: 1.5em; font-family: 'Courier New', monospace; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #ffffff; text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;">
+                COMMUNICATING CONFUSION</h2>
+
+            <div class="demo-item grain">
+                <h3 class="retro-cyan">TLDR</h3>
+                <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 250px;">
+                        <p class="retro-text" style="margin-bottom: 15px;">
+                            The ability to solve problems boils down to how well you can communicate your confusion.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="retro-text">
+                IN THE YEAR OF OUR CHATBOT OVERLORDS</h3>
+                <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 250px;">
+                        <p class="retro-text" style="margin-bottom: 15px;">
+                            The ability to solve problems boils down to how well you can communicate your confusion.
+                        </p>
+                    </div>
+                </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="crt-screen" style="text-align: center; margin-top: 40px;">
+            <a href="mailto:charlie@chrlie.dev" class="scanlines retro-text" style="text-decoration: none;"
+                onmouseover="this.className='scanlines retro-text glitch'; this.setAttribute('data-text', 'charlie@chrlie.dev')"
+                onmouseout="this.className='scanlines retro-text'; this.removeAttribute('data-text')">
+                {'>>> charlie@chrlie.dev <<<'} </a>
+        </footer>
+    </div>
+</body>
+
+</html>

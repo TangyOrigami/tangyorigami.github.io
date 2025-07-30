@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Glitch Effects Showcase</title>
+    <link rel="stylesheet" href="./glitch.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="crt-screen" style="text-align: center; margin-bottom: 40px;">
+            <h1 class="glitch" data-text="RETRO GLITCH SHOWCASE" style="font-size: 2.5em; margin: 0; color: #c0c0c0;">
+                RETRO GLITCH SHOWCASE
+            </h1>
+            <p class="scanlines" style="margin: 10px 0; color: #a0a0a0;">
+                {'>>> TERMINAL AESTHETICS DEMO <<<'} </p>
+        </header>
+
+        <!-- Basic Retro Text Styles -->
+        <section class="section">
+            <h2>Basic Text Styles</h2>
+
+            <div class="demo-item">
+                <h3>Standard Text</h3>
+                <p>Classic terminal text with subtle glow effect</p>
+                <div
+                    style="font-size: 1.5em; font-family: 'Courier New', monospace; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #c0c0c0; text-shadow: 0 0 10px #808080;">
+                    SYSTEM ONLINE - ALL FUNCTIONS OPERATIONAL
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>Highlighted Text</h3>
+                <p>Bright phosphor glow effect for emphasis</p>
+                <div
+                    style="font-size: 1.5em; font-family: 'Courier New', monospace; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #ffffff; text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;">
+                    WHITE PHOSPHOR - CLASSIC DISPLAY
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>Secondary Text</h3>
+                <p>Muted gray for secondary text elements</p>
+                <div
+                    style="font-size: 1.5em; font-family: 'Courier New', monospace; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #a0a0a0; text-shadow: 0 0 5px #a0a0a0, 0 0 10px #a0a0a0;">
+                    GRAY SCALE - TERMINAL MODE
+                </div>
+            </div>
+        </section>
+
+        <!-- Glitch Effects -->
+        <section class="section">
+            <h2>Glitch Effects</h2>
+
+            <div class="demo-item">
+                <h3>.glitch</h3>
+                <p>RGB split glitch effect (requires data-text attribute)</p>
+                <div class="glitch" data-text="ERROR 404 - REALITY NOT FOUND" style="font-size: 1.8em; color: #c0c0c0;">
+                    ERROR 404 - REALITY NOT FOUND
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>.glitch + Highlighted Text</h3>
+                <p>Combining glitch with bright text</p>
+                <div class="glitch" data-text="MALFUNCTION DETECTED"
+                    style="font-size: 1.5em; color: #ffffff; text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;">
+                    MALFUNCTION DETECTED
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen Effects -->
+        <section class="section">
+            <h2>Screen Effects</h2>
+
+            <div class="demo-item">
+                <h3>.scanlines</h3>
+                <p>Moving scanline overlay effect</p>
+                <div class="scanlines"
+                    style="font-size: 1.3em; padding: 20px; background: rgba(0, 0, 0, 0.5); color: #c0c0c0;">
+                    SCANNING... PLEASE WAIT
+                    <br>
+                    {'[████████████████████] 100%'}
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>.crt-screen</h3>
+                <p>CRT monitor container with curved edges and glow</p>
+                <div class="crt-screen">
+                    <div
+                        style="font-family: 'Courier New', monospace; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #c0c0c0; text-shadow: 0 0 10px #808080;">
+                        {'> WELCOME TO THE MAINFRAME'}
+                        <br>
+                        {'> ENTER PASSWORD: ********'}
+                        <br>
+                        {'> ACCESS GRANTED'}
+                        <br>
+                        <span style="color: #a0a0a0; text-shadow: 0 0 5px #a0a0a0, 0 0 10px #a0a0a0;">{'> LOADING NEURAL
+                            INTERFACE...'}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>.flicker</h3>
+                <p>Random flickering effect</p>
+                <div class="flicker"
+                    style="font-size: 1.4em; color: #ffffff; text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;">
+                    UNSTABLE CONNECTION - SIGNAL WEAK
+                </div>
+            </div>
+
+            <div class="demo-item">
+                <h3>.static</h3>
+                <p>Static noise overlay</p>
+                <div class="static"
+                    style="font-size: 1.3em; padding: 20px; background: rgba(0, 0, 0, 0.7); color: #a0a0a0;">
+                    TRANSMISSION INTERRUPTED
+                    <br>
+                    ATTEMPTING TO RECONNECT...
+                </div>
+            </div>
+        </section>
+
+        <!-- Combined Effects -->
+        <section class="section">
+            <h2>Combined Effects</h2>
+
+            <div class="grid">
+                <div class="card crt-screen">
+                    <h3 class="glitch" data-text="TERMINAL 01"
+                        style="color: #ffffff; text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;">
+                        TERMINAL 01</h3>
+                    <div class="scanlines" style="color: #c0c0c0;">
+                        {'> STATUS: ONLINE'}
+                        <br>
+                        {'> CPU: 98.7%'}
+                        <br>
+                        {'> MEMORY: 2.1GB'}
+                    </div>
+                </div>
+
+                <div class="card crt-screen">
+                    <h3 class="flicker" style="color: #a0a0a0; text-shadow: 0 0 5px #a0a0a0, 0 0 10px #a0a0a0;">NEURAL
+                        LINK</h3>
+                    <div class="static" style="color: #c0c0c0;">
+                        {'> SYNCING...'}
+                        <br>
+                        {'> BANDWIDTH: 1.21 GW'}
+                        <br>
+                        {'> LATENCY: 0.003ms'}
+                    </div>
+                </div>
+
+                <div class="card crt-screen">
+                    <h3 class="glitch" data-text="FIREWALL" style="color: #c0c0c0;">FIREWALL</h3>
+                    <div class="scanlines">
+                        <span
+                            style="color: #ffffff; text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;">{'>
+                            THREATS DETECTED: 0'}</span>
+                        <br>
+                        <span style="color: #a0a0a0; text-shadow: 0 0 5px #a0a0a0, 0 0 10px #a0a0a0;">{'> LAST SCAN:
+                            00:00:01'}</span>
+                        <br>
+                        <span style="color: #c0c0c0;">{'> STATUS: PROTECTED'}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo -->
+        <section class="section">
+            <h2>Interactive Demo</h2>
+            <div class="demo-item">
+                <h3>Hover Effects</h3>
+                <p>Hover over the buttons to see different combinations</p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+                    <button
+                        style="background: transparent; border: 2px solid #808080; padding: 10px 20px; cursor: pointer; font-family: 'Courier New', monospace; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #c0c0c0; text-shadow: 0 0 10px #808080;"
+                        onmouseover="this.className='glitch'; this.setAttribute('data-text', 'MONO'); this.style.color='#c0c0c0'; this.style.textShadow='0 0 10px #808080';"
+                        onmouseout="this.className=''; this.removeAttribute('data-text'); this.style.color='#c0c0c0'; this.style.textShadow='0 0 10px #808080';">
+                        MONO
+                    </button>
+                    <button
+                        style="background: transparent; border: 2px solid #ffffff; padding: 10px 20px; cursor: pointer; font-family: 'Courier New', monospace; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #ffffff; text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;"
+                        onmouseover="this.className='flicker'; this.style.color='#ffffff'; this.style.textShadow='0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff';"
+                        onmouseout="this.className=''; this.style.color='#ffffff'; this.style.textShadow='0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff';">
+                        WHITE
+                    </button>
+                    <button
+                        style="background: transparent; border: 2px solid #a0a0a0; padding: 10px 20px; cursor: pointer; font-family: 'Courier New', monospace; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: #a0a0a0; text-shadow: 0 0 5px #a0a0a0, 0 0 10px #a0a0a0;"
+                        onmouseover="this.className='static'; this.style.color='#a0a0a0'; this.style.textShadow='0 0 5px #a0a0a0, 0 0 10px #a0a0a0';"
+                        onmouseout="this.className=''; this.style.color='#a0a0a0'; this.style.textShadow='0 0 5px #a0a0a0, 0 0 10px #a0a0a0';">
+                        GRAY
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="crt-screen" style="text-align: center; margin-top: 40px;">
+            <div class="scanlines" style="color: #c0c0c0;">
+                {'>>> END OF TRANSMISSION <<<'} </div>
+        </footer>
+    </div>
+</body>
+
+</html>
